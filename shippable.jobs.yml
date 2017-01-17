@@ -2,10 +2,10 @@ jobs:
   - name: selenium-manifest
     type: manifest
     steps:
-     - IN: selenium_master
+     - IN: selenium-pl_master
      - TASK: managed
 
-  - name: selenium_master
+  - name: selenium-pl_master
     type: deploy
     steps:
       - IN: selenium-manifest
