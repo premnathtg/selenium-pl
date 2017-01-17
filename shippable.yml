@@ -1,0 +1,25 @@
+language: none
+
+build:
+  ci:
+    - echo 'CI Running'
+    - export IMAGE_NAME=680976004409.dkr.ecr.us-east-1.amazonaws.com/selenium
+    - chmod 777 build.sh
+    - ./build.sh
+  post_ci:
+    - chmod 777 push.sh
+    - ./push.sh
+
+branches:
+  only:
+    - master
+    - dev
+    - release-*
+    - hotfix-*
+
+integrations:
+    hub:
+      - integrationName: Amazon-DEV
+        type: ecr
+    
+        
