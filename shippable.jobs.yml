@@ -1,0 +1,15 @@
+jobs:
+  - name: selenium-manifest
+    type: manifest
+    steps:
+     - IN: selenium_master
+     - TASK: managed
+
+  - name: selenium_master
+    type: deploy
+    steps:
+      - IN: selenium-manifest
+      - IN: docker-opts
+      - IN: selenium
+      - TASK: managed
+        deployMethod: upgrade

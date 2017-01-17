@@ -1,19 +1,20 @@
 resources:
-
-  - name: selenium-test
+  - name: selenium_master
     type: image
+    integration: docker-integration
+
+    seed:
+      versionName: "selenium-py.8"
+
+  - name: docker-opts
+    type: dockerOptions
+    version:
+      portMappings:
+        - 80:80
+
+  - name: selenium
+    type: cluster
     integration: Amazon-Dev
     pointer:
-      sourceName: "680976004409.dkr.ecr.us-east-1.amazonaws.com/selenium"
-      isPull: false
-    seed:
-      versionName: "selenium-t.13"
-
-  - name: selenium-py
-    type: image
-    integration: Amazon-Dev
-    pointer:
-      sourceName: "680976004409.dkr.ecr.us-east-1.amazonaws.com/selenium"
-      isPull: false
-    seed:
-      versionName: "selenium-py.8"      
+      sourceName : "selenium" #name of the cluster to which we are deploying
+      region: "us-east-1c"
