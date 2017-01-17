@@ -1,0 +1,19 @@
+resources:
+
+  - name: selenium-test
+    type: image
+    integration: Amazon-Dev
+    pointer:
+      sourceName: "680976004409.dkr.ecr.us-east-1.amazonaws.com/selenium"
+      isPull: false
+    seed:
+      versionName: "selenium-t.13"
+
+  - name: selenium-py
+    type: image
+    integration: Amazon-Dev
+    pointer:
+      sourceName: "680976004409.dkr.ecr.us-east-1.amazonaws.com/selenium"
+      isPull: false
+    seed:
+      versionName: "selenium-py.8"      
